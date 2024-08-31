@@ -1,0 +1,24 @@
+{
+    "analysis_data": [
+      {
+        "id": "beanQualityPrediction",
+        "title": "Bean Quality Prediction",
+        "description": "Predict if the method of farming is effective and estimate the quality of beans.",
+        "image": "/qualitybean.jpg"
+      },
+      {
+        "id": "growthRecommendation",
+        "title": "Growth Recommendation",
+        "description": "Get recommendations on planting methods, maintenance, and coffee varieties.",
+        "image": "/growth.jpg"
+      },
+      {
+        "id": "pestDiseaseManagement",
+        "title": "Pest and Disease Management",
+        "description": "Get advice on managing pests and diseases affecting your coffee plants.",
+        "image": "/pest.jpg"
+      }
+
+    ]
+  }
+  

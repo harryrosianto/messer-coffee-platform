@@ -1,0 +1,62 @@
+{
+    "analysisTypes": [
+      {
+        "id": "beanQualityPrediction",
+        "title": "Bean Quality Prediction",
+        "description": "Predict if the method of farming is effective and estimate the quality of beans.",
+        "image": "/qualitybean.jpg",
+        "formFields": [
+          {"label": "Type of Bean", "placeholder": "Type of bean", "type": "text"},
+          {"label": "Altitude", "placeholder": "Altitude in meters", "type": "number"},
+          {"label": "Weather Temperature", "placeholder": "Temperature in °C", "type": "text"},
+          {"label": "Weather Rainfall", "placeholder": "Rainfall in mm", "type": "text"},
+          {"label": "Humidity", "placeholder": "Humidity percentage", "type": "text"},
+          {"label": "Soil pH", "placeholder": "Soil pH level", "type": "text"},
+          {"label": "Soil Texture", "placeholder": "Soil texture", "type": "text"},
+          {"label": "Plant Age", "placeholder": "Plant age in months", "type": "number"},
+          {"label": "Plant Disease (if any)", "placeholder": "Disease description", "type": "text"}
+        ]
+      },
+      {
+        "id": "growthRecommendation",
+        "title": "Growth Recommendation",
+        "description": "Get recommendations on planting methods, maintenance, and coffee varieties.",
+        "image": "/growth.jpg",
+        "formFields": [
+          {"label": "Altitude", "placeholder": "Elevation in meters", "type": "number"},
+          {"label": "Average Temperature", "placeholder": "Monthly temperature ranges", "type": "text"},
+          {"label": "Annual Rainfall", "placeholder": "Total precipitation", "type": "text"},
+          {"label": "Humidity", "placeholder": "Average relative humidity", "type": "text"},
+          {"label": "Soil pH", "placeholder": "Soil pH level", "type": "text"},
+          {"label": "Soil Texture", "placeholder": "Sandy, Loamy, Clayey", "type": "text"},
+          {"label": "Desired Coffee Variety", "placeholder": "Preferred or open to recommendations", "type": "text"},
+          {"label": "Initial Investment", "placeholder": "Budget", "type": "number"},
+          {"label": "Resources Available", "placeholder": "Tools, equipment, labor", "type": "text"}
+        ]
+      },
+      {
+        "id": "pestDiseaseManagement",
+        "title": "Pest and Disease Management",
+        "description": "Get advice on managing pests and diseases affecting your coffee plants.",
+        "image": "/pest.jpg",
+        "formFields": [
+          {"label": "Coffee Variety", "placeholder": "Specific variety of coffee", "type": "text"},
+          {"label": "Plant Age", "placeholder": "Age of coffee plants", "type": "number"},
+          {"label": "Observed Symptoms", "placeholder": "Description of symptoms", "type": "text"},
+          {"label": "Affected Parts", "placeholder": "Leaves, Stems, Roots", "type": "text"},
+          {"label": "Pest Presence", "placeholder": "Visible pests", "type": "text"},
+          {"label": "Disease Identification", "placeholder": "Known diseases", "type": "text"},
+          {"label": "Pest Control Methods", "placeholder": "Current methods used", "type": "text"},
+          {"label": "Disease Management Methods", "placeholder": "Current strategies", "type": "text"},
+          {"label": "Climate Conditions", "placeholder": "Temperature, Humidity", "type": "text"},
+          {"label": "Watering Practices", "placeholder": "Frequency and amount of watering", "type": "text"},
+          {"label": "Fertilizer Use", "placeholder": "Type and frequency", "type": "text"},
+          {"label": "Soil Condition", "placeholder": "Soil health and issues", "type": "text"},
+          {"label": "Effectiveness of Past Treatments", "placeholder": "Success or failure", "type": "text"},
+          {"label": "Budget for Pest and Disease Management", "placeholder": "Available budget", "type": "number"},
+          {"label": "Available Resources", "placeholder": "Tools, equipment, labor", "type": "text"}
+        ]
+      }
+    ]
+  }
+  

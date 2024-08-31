@@ -16,11 +16,14 @@
   }
 }
 
-body, html {
-  background-color: #fefae0; /* Matches the footer background */
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -29,7 +32,6 @@ body, html {
   }
 }
 
-main {
-  min-height: calc(100vh - /* height of the footer */);
-  /* Alternatively, add the remaining gap (if there's any) */
-}
+nav {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }

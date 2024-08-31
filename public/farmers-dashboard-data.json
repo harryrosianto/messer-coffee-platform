@@ -1,0 +1,11 @@
+{
+    "last_watering_status": "2024-08-27",
+    "plant_health_status": "Good",
+    "day_of_planting": "2024-05-15",
+    "current_weather_temperature": "25°C",
+    "current_soil_moisture": "60%",
+    "plant_grow_stage": "Flowering",
+    "last_fertilization_status": "2024-08-10",
+    "treatment_applied": "Pest control",
+    "labor_usage": "4 hours/day"
+}

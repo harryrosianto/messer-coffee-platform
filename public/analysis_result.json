@@ -1,0 +1,16 @@
+{
+  "analysisType": "beanQualityPrediction",
+  "beanQualityPrediction": [
+    {
+      "Type of Bean": "Arabica",
+      "Altitude": "1400",
+      "Weather Temperature": "22",
+      "Weather Rainfall": "1800",
+      "Humidity": "70",
+      "Soil pH": "5.5",
+      "Soil Texture": "Latosal",
+      "Plant Age": "4",
+      "Plant Disease (if any)": "-"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+    "bean_quality_prediction": [
+      {
+        "id": "1",
+        "type_of_bean": "Arabica",
+        "altitude": 1200,
+        "weather_temperature": "20-25°C",
+        "weather_rainfall": "1500mm",
+        "humidity": "70%",
+        "soil_ph": "6.0",
+        "soil_texture": "Loamy",
+        "plant_age": 24,
+        "plant_disease": "None"
+      },
+      {
+        "id": "2",
+        "type_of_bean": "Robusta",
+        "altitude": 800,
+        "weather_temperature": "25-30°C",
+        "weather_rainfall": "2000mm",
+        "humidity": "80%",
+        "soil_ph": "5.5",
+        "soil_texture": "Sandy",
+        "plant_age": 18,
+        "plant_disease": "Leaf Rust"
+      }
+    ]
+  }
+  

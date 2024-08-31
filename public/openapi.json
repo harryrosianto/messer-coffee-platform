@@ -1,0 +1,5079 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "MESER COFFEE",
+        "description": "\n        This is a service for MESER COFFEE.\n    ",
+        "version": "2.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Root",
+                "operationId": "root__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/register": {
+            "post": {
+                "tags": [
+                    "register"
+                ],
+                "summary": "Create",
+                "description": "Creates a new obj",
+                "operationId": "create_mesercoffee_register_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserRegisterSch"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PostResponseBaseSch_UserSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/analysis": {
+            "get": {
+                "tags": [
+                    "analysis"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of analysis",
+                "operationId": "get_mesercoffee_analysis_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "analysis"
+                ],
+                "summary": "Create",
+                "description": "Create a new analysis",
+                "operationId": "create_mesercoffee_analysis_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AnalysisCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/analysis/no_page": {
+            "get": {
+                "tags": [
+                    "analysis"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_analysis_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_AnalysisSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/analysis/{id}": {
+            "get": {
+                "tags": [
+                    "analysis"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_analysis__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_AnalysisSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "analysis"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_analysis__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalAnalysisUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_AnalysisSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/bean_quality": {
+            "get": {
+                "tags": [
+                    "bean_quality"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of bean_qualitys",
+                "operationId": "get_mesercoffee_bean_quality_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "bean_quality"
+                ],
+                "summary": "Create",
+                "description": "Create a new bean_quality",
+                "operationId": "create_mesercoffee_bean_quality_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BeanQualityCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/bean_quality/no_page": {
+            "get": {
+                "tags": [
+                    "bean_quality"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_bean_quality_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_BeanQualitySch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/bean_quality/{id}": {
+            "get": {
+                "tags": [
+                    "bean_quality"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_bean_quality__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_BeanQualitySch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "bean_quality"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_bean_quality__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalBeanQualityUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_BeanQualitySch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/bean_type": {
+            "get": {
+                "tags": [
+                    "bean_type"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of bean_types",
+                "operationId": "get_mesercoffee_bean_type_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "bean_type"
+                ],
+                "summary": "Create",
+                "description": "Create a new bean_type",
+                "operationId": "create_mesercoffee_bean_type_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BeanTypeCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/bean_type/no_page": {
+            "get": {
+                "tags": [
+                    "bean_type"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_bean_type_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_BeanTypeSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/bean_type/{id}": {
+            "get": {
+                "tags": [
+                    "bean_type"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_bean_type__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_BeanTypeSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "bean_type"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_bean_type__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalBeanTypeUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_BeanTypeSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/buyer_preferences": {
+            "get": {
+                "tags": [
+                    "buyer_preferences"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of buyer_preferencess",
+                "operationId": "get_mesercoffee_buyer_preferences_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "buyer_preferences"
+                ],
+                "summary": "Create",
+                "description": "Create a new buyer_preferences",
+                "operationId": "create_mesercoffee_buyer_preferences_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BuyerPreferencesCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/buyer_preferences/no_page": {
+            "get": {
+                "tags": [
+                    "buyer_preferences"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_buyer_preferences_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_BuyerPreferencesSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/buyer_preferences/{id}": {
+            "get": {
+                "tags": [
+                    "buyer_preferences"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_buyer_preferences__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_BuyerPreferencesSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "buyer_preferences"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_buyer_preferences__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalBuyerPreferencesUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_BuyerPreferencesSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/disease_management": {
+            "get": {
+                "tags": [
+                    "disease_management"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of buyer_preferencess",
+                "operationId": "get_mesercoffee_disease_management_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "disease_management"
+                ],
+                "summary": "Create",
+                "description": "Create a new buyer_preferences",
+                "operationId": "create_mesercoffee_disease_management_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BuyerPreferencesCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/disease_management/no_page": {
+            "get": {
+                "tags": [
+                    "disease_management"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_disease_management_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_BuyerPreferencesSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/disease_management/{id}": {
+            "get": {
+                "tags": [
+                    "disease_management"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_disease_management__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_BuyerPreferencesSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "disease_management"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_disease_management__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalBuyerPreferencesUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_BuyerPreferencesSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/farming_info": {
+            "get": {
+                "tags": [
+                    "farming_info"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of farming_infos",
+                "operationId": "get_mesercoffee_farming_info_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "farming_info"
+                ],
+                "summary": "Create",
+                "description": "Create a new farming_info",
+                "operationId": "create_mesercoffee_farming_info_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FarmingInfoCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/farming_info/no_page": {
+            "get": {
+                "tags": [
+                    "farming_info"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_farming_info_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_FarmingInfoSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/farming_info/{id}": {
+            "get": {
+                "tags": [
+                    "farming_info"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_farming_info__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_FarmingInfoSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "farming_info"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_farming_info__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalFarmingInfoUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_FarmingInfoSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/growth": {
+            "get": {
+                "tags": [
+                    "growth"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of growths",
+                "operationId": "get_mesercoffee_growth_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "growth"
+                ],
+                "summary": "Create",
+                "description": "Create a new growth",
+                "operationId": "create_mesercoffee_growth_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GrowthCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/growth/no_page": {
+            "get": {
+                "tags": [
+                    "growth"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_growth_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_GrowthSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/growth/{id}": {
+            "get": {
+                "tags": [
+                    "growth"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_growth__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_GrowthSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "growth"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_growth__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalGrowthUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_GrowthSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/roast_level": {
+            "get": {
+                "tags": [
+                    "roast_level"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of roast_levels",
+                "operationId": "get_mesercoffee_roast_level_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "roast_level"
+                ],
+                "summary": "Create",
+                "description": "Create a new roast_level",
+                "operationId": "create_mesercoffee_roast_level_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RoastLevelCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/roast_level/no_page": {
+            "get": {
+                "tags": [
+                    "roast_level"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_roast_level_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_RoastLevelSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/roast_level/{id}": {
+            "get": {
+                "tags": [
+                    "roast_level"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_roast_level__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_RoastLevelSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "roast_level"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_roast_level__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalRoastLevelUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_RoastLevelSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/role": {
+            "get": {
+                "tags": [
+                    "role"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list of roles",
+                "operationId": "get_mesercoffee_role_get",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "default": 1,
+                            "title": "Page"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "default": 50,
+                            "title": "Size"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "role"
+                ],
+                "summary": "Create",
+                "description": "Create a new role",
+                "operationId": "create_mesercoffee_role_post",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RoleCreateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/role/no_page": {
+            "get": {
+                "tags": [
+                    "role"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_role_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_RoleSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/role/{id}": {
+            "get": {
+                "tags": [
+                    "role"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_role__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_RoleSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "role"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_role__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalRoleUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_RoleSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/user": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get",
+                "description": "Gets a paginated list objects",
+                "operationId": "get_mesercoffee_user_get",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Search user by name",
+                            "title": "Search"
+                        },
+                        "description": "Search user by name"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "Page number",
+                            "default": 1,
+                            "title": "Page"
+                        },
+                        "description": "Page number"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 100,
+                            "minimum": 1,
+                            "description": "Page size",
+                            "default": 50,
+                            "title": "Size"
+                        },
+                        "description": "Page size"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponsePaginatedSch_UserSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/user/no_page": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get No Page",
+                "description": "Gets a list objects",
+                "operationId": "get_no_page_mesercoffee_user_no_page_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_list_UserSch__"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mesercoffee/user/{id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get By Id",
+                "description": "Gets an object by its id",
+                "operationId": "get_by_id_mesercoffee_user__id__get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetResponseBaseSch_UserSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update",
+                "description": "Updates a obj by its id",
+                "operationId": "update_mesercoffee_user__id__put",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Id"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OptionalUserUpdateSch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PutResponseBaseSch_UserSch_"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AnalysisCreateSch": {
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Title"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    },
+                    "image": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Image"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "descs",
+                    "image"
+                ],
+                "title": "AnalysisCreateSch"
+            },
+            "AnalysisSch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "title": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Title"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    },
+                    "image": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Image"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title",
+                    "descs",
+                    "image"
+                ],
+                "title": "AnalysisSch"
+            },
+            "BeanQualityCreateSch": {
+                "properties": {
+                    "bean_type_id": {
+                        "type": "string",
+                        "title": "Bean Type Id"
+                    },
+                    "altitude": {
+                        "type": "number",
+                        "title": "Altitude"
+                    },
+                    "weather_temperature": {
+                        "type": "number",
+                        "title": "Weather Temperature"
+                    },
+                    "weather_rainfall": {
+                        "type": "number",
+                        "title": "Weather Rainfall"
+                    },
+                    "humidity": {
+                        "type": "number",
+                        "title": "Humidity"
+                    },
+                    "soil_ph": {
+                        "type": "number",
+                        "title": "Soil Ph"
+                    },
+                    "soil_texture": {
+                        "type": "string",
+                        "title": "Soil Texture"
+                    },
+                    "plant_age": {
+                        "type": "number",
+                        "title": "Plant Age"
+                    },
+                    "disease": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Disease"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "bean_type_id",
+                    "altitude",
+                    "weather_temperature",
+                    "weather_rainfall",
+                    "humidity",
+                    "soil_ph",
+                    "soil_texture",
+                    "plant_age",
+                    "disease"
+                ],
+                "title": "BeanQualityCreateSch"
+            },
+            "BeanQualitySch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "bean_type_id": {
+                        "type": "string",
+                        "title": "Bean Type Id"
+                    },
+                    "altitude": {
+                        "type": "number",
+                        "title": "Altitude"
+                    },
+                    "weather_temperature": {
+                        "type": "number",
+                        "title": "Weather Temperature"
+                    },
+                    "weather_rainfall": {
+                        "type": "number",
+                        "title": "Weather Rainfall"
+                    },
+                    "humidity": {
+                        "type": "number",
+                        "title": "Humidity"
+                    },
+                    "soil_ph": {
+                        "type": "number",
+                        "title": "Soil Ph"
+                    },
+                    "soil_texture": {
+                        "type": "string",
+                        "title": "Soil Texture"
+                    },
+                    "plant_age": {
+                        "type": "number",
+                        "title": "Plant Age"
+                    },
+                    "disease": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Disease"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "bean_type_id",
+                    "altitude",
+                    "weather_temperature",
+                    "weather_rainfall",
+                    "humidity",
+                    "soil_ph",
+                    "soil_texture",
+                    "plant_age",
+                    "disease"
+                ],
+                "title": "BeanQualitySch"
+            },
+            "BeanTypeCreateSch": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "descs"
+                ],
+                "title": "BeanTypeCreateSch"
+            },
+            "BeanTypeSch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "descs"
+                ],
+                "title": "BeanTypeSch"
+            },
+            "BuyerPreferencesCreateSch": {
+                "properties": {
+                    "roast_level_id": {
+                        "type": "string",
+                        "title": "Roast Level Id"
+                    },
+                    "origin": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Origin"
+                    },
+                    "processing_method": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "title": "Processing Method"
+                    },
+                    "flavor_profile": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Flavor Profile"
+                    },
+                    "max_price": {
+                        "type": "number",
+                        "title": "Max Price",
+                        "default": 9999999
+                    },
+                    "min_price": {
+                        "type": "number",
+                        "title": "Min Price",
+                        "default": 0
+                    },
+                    "stock_quantity": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Stock Quantity"
+                    },
+                    "delivery_frequency": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Delivery Frequency"
+                    },
+                    "favorite_brands": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Favorite Brands"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "roast_level_id",
+                    "origin",
+                    "processing_method",
+                    "flavor_profile",
+                    "stock_quantity",
+                    "delivery_frequency",
+                    "favorite_brands",
+                    "descs"
+                ],
+                "title": "BuyerPreferencesCreateSch"
+            },
+            "BuyerPreferencesSch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "roast_level_id": {
+                        "type": "string",
+                        "title": "Roast Level Id"
+                    },
+                    "origin": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Origin"
+                    },
+                    "processing_method": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "title": "Processing Method"
+                    },
+                    "flavor_profile": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Flavor Profile"
+                    },
+                    "max_price": {
+                        "type": "number",
+                        "title": "Max Price",
+                        "default": 9999999
+                    },
+                    "min_price": {
+                        "type": "number",
+                        "title": "Min Price",
+                        "default": 0
+                    },
+                    "stock_quantity": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Stock Quantity"
+                    },
+                    "delivery_frequency": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Delivery Frequency"
+                    },
+                    "favorite_brands": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Favorite Brands"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "roast_level_id",
+                    "origin",
+                    "processing_method",
+                    "flavor_profile",
+                    "stock_quantity",
+                    "delivery_frequency",
+                    "favorite_brands",
+                    "descs"
+                ],
+                "title": "BuyerPreferencesSch"
+            },
+            "FarmingInfoCreateSch": {
+                "properties": {
+                    "watering_date": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Watering Date"
+                    },
+                    "plant_health_date": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Plant Health Date"
+                    },
+                    "day_of_planting": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Day Of Planting"
+                    },
+                    "weather_temperature": {
+                        "type": "number",
+                        "title": "Weather Temperature"
+                    },
+                    "soil_moisture": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 50
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Moisture"
+                    },
+                    "grow_stage": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Grow Stage"
+                    },
+                    "fertilization_date": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Fertilization Date"
+                    },
+                    "treatment_applied": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Treatment Applied"
+                    },
+                    "labor_usage": {
+                        "type": "number",
+                        "title": "Labor Usage"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "watering_date",
+                    "plant_health_date",
+                    "day_of_planting",
+                    "weather_temperature",
+                    "soil_moisture",
+                    "grow_stage",
+                    "fertilization_date",
+                    "treatment_applied",
+                    "labor_usage"
+                ],
+                "title": "FarmingInfoCreateSch"
+            },
+            "FarmingInfoSch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "watering_date": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Watering Date"
+                    },
+                    "plant_health_date": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Plant Health Date"
+                    },
+                    "day_of_planting": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Day Of Planting"
+                    },
+                    "weather_temperature": {
+                        "type": "number",
+                        "title": "Weather Temperature"
+                    },
+                    "soil_moisture": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 50
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Moisture"
+                    },
+                    "grow_stage": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Grow Stage"
+                    },
+                    "fertilization_date": {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Fertilization Date"
+                    },
+                    "treatment_applied": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 100
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Treatment Applied"
+                    },
+                    "labor_usage": {
+                        "type": "number",
+                        "title": "Labor Usage"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "watering_date",
+                    "plant_health_date",
+                    "day_of_planting",
+                    "weather_temperature",
+                    "soil_moisture",
+                    "grow_stage",
+                    "fertilization_date",
+                    "treatment_applied",
+                    "labor_usage"
+                ],
+                "title": "FarmingInfoSch"
+            },
+            "GenderEnum": {
+                "type": "string",
+                "enum": [
+                    "female",
+                    "male",
+                    "other"
+                ],
+                "title": "GenderEnum"
+            },
+            "GetResponseBaseSch_AnalysisSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/AnalysisSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[AnalysisSch]"
+            },
+            "GetResponseBaseSch_BeanQualitySch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/BeanQualitySch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[BeanQualitySch]"
+            },
+            "GetResponseBaseSch_BeanTypeSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/BeanTypeSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[BeanTypeSch]"
+            },
+            "GetResponseBaseSch_BuyerPreferencesSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/BuyerPreferencesSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[BuyerPreferencesSch]"
+            },
+            "GetResponseBaseSch_FarmingInfoSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/FarmingInfoSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[FarmingInfoSch]"
+            },
+            "GetResponseBaseSch_GrowthSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GrowthSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[GrowthSch]"
+            },
+            "GetResponseBaseSch_RoastLevelSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/RoastLevelSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[RoastLevelSch]"
+            },
+            "GetResponseBaseSch_RoleSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/RoleSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[RoleSch]"
+            },
+            "GetResponseBaseSch_UserSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/UserSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[UserSch]"
+            },
+            "GetResponseBaseSch_list_AnalysisSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/AnalysisSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[AnalysisSch]]"
+            },
+            "GetResponseBaseSch_list_BeanQualitySch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/BeanQualitySch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[BeanQualitySch]]"
+            },
+            "GetResponseBaseSch_list_BeanTypeSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/BeanTypeSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[BeanTypeSch]]"
+            },
+            "GetResponseBaseSch_list_BuyerPreferencesSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/BuyerPreferencesSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[BuyerPreferencesSch]]"
+            },
+            "GetResponseBaseSch_list_FarmingInfoSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/FarmingInfoSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[FarmingInfoSch]]"
+            },
+            "GetResponseBaseSch_list_GrowthSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/GrowthSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[GrowthSch]]"
+            },
+            "GetResponseBaseSch_list_RoastLevelSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/RoastLevelSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[RoastLevelSch]]"
+            },
+            "GetResponseBaseSch_list_RoleSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/RoleSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[RoleSch]]"
+            },
+            "GetResponseBaseSch_list_UserSch__": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "items": {
+                                    "$ref": "#/components/schemas/UserSch"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Data"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponseBaseSch[list[UserSch]]"
+            },
+            "GetResponsePaginatedSch_UserSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data got correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/PageBase_UserSch_"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "GetResponsePaginatedSch[UserSch]"
+            },
+            "GrowthCreateSch": {
+                "properties": {
+                    "altitude": {
+                        "type": "number",
+                        "title": "Altitude"
+                    },
+                    "average_temperature": {
+                        "type": "number",
+                        "title": "Average Temperature"
+                    },
+                    "annual_rainfall": {
+                        "type": "number",
+                        "title": "Annual Rainfall"
+                    },
+                    "humidity": {
+                        "type": "number",
+                        "title": "Humidity"
+                    },
+                    "soil_ph": {
+                        "type": "number",
+                        "title": "Soil Ph"
+                    },
+                    "soil_texture": {
+                        "type": "string",
+                        "title": "Soil Texture"
+                    },
+                    "bean_type_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Bean Type Id"
+                    },
+                    "initial_investment": {
+                        "type": "number",
+                        "title": "Initial Investment",
+                        "default": 0
+                    },
+                    "available_resources": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Available Resources"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "altitude",
+                    "average_temperature",
+                    "annual_rainfall",
+                    "humidity",
+                    "soil_ph",
+                    "soil_texture",
+                    "bean_type_id",
+                    "available_resources"
+                ],
+                "title": "GrowthCreateSch"
+            },
+            "GrowthSch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "altitude": {
+                        "type": "number",
+                        "title": "Altitude"
+                    },
+                    "average_temperature": {
+                        "type": "number",
+                        "title": "Average Temperature"
+                    },
+                    "annual_rainfall": {
+                        "type": "number",
+                        "title": "Annual Rainfall"
+                    },
+                    "humidity": {
+                        "type": "number",
+                        "title": "Humidity"
+                    },
+                    "soil_ph": {
+                        "type": "number",
+                        "title": "Soil Ph"
+                    },
+                    "soil_texture": {
+                        "type": "string",
+                        "title": "Soil Texture"
+                    },
+                    "bean_type_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Bean Type Id"
+                    },
+                    "initial_investment": {
+                        "type": "number",
+                        "title": "Initial Investment",
+                        "default": 0
+                    },
+                    "available_resources": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Available Resources"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "altitude",
+                    "average_temperature",
+                    "annual_rainfall",
+                    "humidity",
+                    "soil_ph",
+                    "soil_texture",
+                    "bean_type_id",
+                    "available_resources"
+                ],
+                "title": "GrowthSch"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "OptionalAnalysisUpdateSch": {
+                "properties": {
+                    "title": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Title"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    },
+                    "image": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Image"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalAnalysisUpdateSch"
+            },
+            "OptionalBeanQualityUpdateSch": {
+                "properties": {
+                    "bean_type_id": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Bean Type Id"
+                    },
+                    "altitude": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Altitude"
+                    },
+                    "weather_temperature": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Weather Temperature"
+                    },
+                    "weather_rainfall": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Weather Rainfall"
+                    },
+                    "humidity": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Humidity"
+                    },
+                    "soil_ph": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Ph"
+                    },
+                    "soil_texture": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Texture"
+                    },
+                    "plant_age": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Plant Age"
+                    },
+                    "disease": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Disease"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalBeanQualityUpdateSch"
+            },
+            "OptionalBeanTypeUpdateSch": {
+                "properties": {
+                    "name": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalBeanTypeUpdateSch"
+            },
+            "OptionalBuyerPreferencesUpdateSch": {
+                "properties": {
+                    "roast_level_id": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Roast Level Id"
+                    },
+                    "origin": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Origin"
+                    },
+                    "processing_method": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Processing Method"
+                    },
+                    "flavor_profile": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Flavor Profile"
+                    },
+                    "max_price": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Max Price"
+                    },
+                    "min_price": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Min Price"
+                    },
+                    "stock_quantity": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Stock Quantity"
+                    },
+                    "delivery_frequency": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Delivery Frequency"
+                    },
+                    "favorite_brands": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Favorite Brands"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalBuyerPreferencesUpdateSch"
+            },
+            "OptionalFarmingInfoUpdateSch": {
+                "properties": {
+                    "watering_date": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Watering Date"
+                    },
+                    "plant_health_date": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Plant Health Date"
+                    },
+                    "day_of_planting": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Day Of Planting"
+                    },
+                    "weather_temperature": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Weather Temperature"
+                    },
+                    "soil_moisture": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Moisture"
+                    },
+                    "grow_stage": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Grow Stage"
+                    },
+                    "fertilization_date": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Fertilization Date"
+                    },
+                    "treatment_applied": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Treatment Applied"
+                    },
+                    "labor_usage": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Labor Usage"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalFarmingInfoUpdateSch"
+            },
+            "OptionalGrowthUpdateSch": {
+                "properties": {
+                    "altitude": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Altitude"
+                    },
+                    "average_temperature": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Average Temperature"
+                    },
+                    "annual_rainfall": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Annual Rainfall"
+                    },
+                    "humidity": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Humidity"
+                    },
+                    "soil_ph": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Ph"
+                    },
+                    "soil_texture": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Soil Texture"
+                    },
+                    "bean_type_id": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Bean Type Id"
+                    },
+                    "initial_investment": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Initial Investment"
+                    },
+                    "available_resources": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Available Resources"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalGrowthUpdateSch"
+            },
+            "OptionalRoastLevelUpdateSch": {
+                "properties": {
+                    "name": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalRoastLevelUpdateSch"
+            },
+            "OptionalRoleUpdateSch": {
+                "properties": {
+                    "name": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalRoleUpdateSch"
+            },
+            "OptionalUserUpdateSch": {
+                "properties": {
+                    "username": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Username"
+                    },
+                    "name": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Name"
+                    },
+                    "email": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Email"
+                    },
+                    "birthdate": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Birthdate"
+                    },
+                    "role_id": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Role Id"
+                    },
+                    "is_active": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Is Active"
+                    },
+                    "phone": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Phone"
+                    },
+                    "gender": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Gender"
+                    },
+                    "state": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "State"
+                    },
+                    "country": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Country"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {},
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Address"
+                    }
+                },
+                "type": "object",
+                "title": "OptionalUserUpdateSch"
+            },
+            "PageBase_UserSch_": {
+                "properties": {
+                    "items": {
+                        "items": {
+                            "$ref": "#/components/schemas/UserSch"
+                        },
+                        "type": "array",
+                        "title": "Items"
+                    },
+                    "total": {
+                        "anyOf": [
+                            {
+                                "type": "integer",
+                                "minimum": 0.0
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Total"
+                    },
+                    "page": {
+                        "anyOf": [
+                            {
+                                "type": "integer",
+                                "minimum": 1.0
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Page"
+                    },
+                    "size": {
+                        "anyOf": [
+                            {
+                                "type": "integer",
+                                "minimum": 1.0
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Size"
+                    },
+                    "pages": {
+                        "type": "integer",
+                        "title": "Pages"
+                    },
+                    "next_page": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Next Page"
+                    },
+                    "previous_page": {
+                        "anyOf": [
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Previous Page"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "items",
+                    "total",
+                    "page",
+                    "size",
+                    "pages",
+                    "next_page",
+                    "previous_page"
+                ],
+                "title": "PageBase[UserSch]"
+            },
+            "PostResponseBaseSch_UserSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data created correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/UserSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PostResponseBaseSch[UserSch]"
+            },
+            "PutResponseBaseSch_AnalysisSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/AnalysisSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[AnalysisSch]"
+            },
+            "PutResponseBaseSch_BeanQualitySch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/BeanQualitySch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[BeanQualitySch]"
+            },
+            "PutResponseBaseSch_BeanTypeSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/BeanTypeSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[BeanTypeSch]"
+            },
+            "PutResponseBaseSch_BuyerPreferencesSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/BuyerPreferencesSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[BuyerPreferencesSch]"
+            },
+            "PutResponseBaseSch_FarmingInfoSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/FarmingInfoSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[FarmingInfoSch]"
+            },
+            "PutResponseBaseSch_GrowthSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GrowthSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[GrowthSch]"
+            },
+            "PutResponseBaseSch_RoastLevelSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/RoastLevelSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[RoastLevelSch]"
+            },
+            "PutResponseBaseSch_RoleSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/RoleSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[RoleSch]"
+            },
+            "PutResponseBaseSch_UserSch_": {
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "title": "Message",
+                        "default": "Data updated correctly"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "title": "Meta",
+                        "default": {}
+                    },
+                    "data": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/UserSch"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "data"
+                ],
+                "title": "PutResponseBaseSch[UserSch]"
+            },
+            "RoastLevelCreateSch": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "descs"
+                ],
+                "title": "RoastLevelCreateSch"
+            },
+            "RoastLevelSch": {
+                "properties": {
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "descs"
+                ],
+                "title": "RoastLevelSch"
+            },
+            "RoleCreateSch": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "descs"
+                ],
+                "title": "RoleCreateSch"
+            },
+            "RoleSch": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "title": "Name"
+                    },
+                    "descs": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 255
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Descs"
+                    },
+                    "id": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 26
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Id"
+                    },
+                    "created_by": {
+                        "type": "string",
+                        "title": "Created By",
+                        "default": "admin"
+                    },
+                    "updated_by": {
+                        "type": "string",
+                        "title": "Updated By",
+                        "default": "admin"
+                    },
+                    "updated_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Updated At"
+                    },
+                    "created_at": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Created At"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "descs"
+                ],
+                "title": "RoleSch"
+            },
+            "UserRegisterSch": {
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "title": "Username"
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "title": "Email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "title": "Password"
+                    },
+                    "role_id": {
+                        "type": "string",
+                        "title": "Role Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "name",
+                    "email",
+                    "password",
+                    "role_id"
+                ],
+                "title": "UserRegisterSch"
+            },
+            "UserSch": {
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "title": "Username"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "title": "Name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "title": "Email"
+                    },
+                    "birthdate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Birthdate"
+                    },
+                    "role_id": {
+                        "type": "string",
+                        "title": "Role Id"
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "title": "Is Active",
+                        "default": true
+                    },
+                    "phone": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Phone"
+                    },
+                    "gender": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GenderEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "default": "other"
+                    },
+                    "state": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "State"
+                    },
+                    "country": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Country"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Address"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "username",
+                    "name",
+                    "email",
+                    "role_id"
+                ],
+                "title": "UserSch"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}

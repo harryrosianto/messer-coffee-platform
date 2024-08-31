@@ -1,0 +1,23 @@
+{
+  "analysisType": "growthRecommendation",
+  "growthRecommendation": [
+    {
+      "Type of Bean": "Arabica",
+      "Altitude": "12",
+      "Weather Temperature": "12",
+      "Weather Rainfall": "12",
+      "Humidity": "12",
+      "Soil pH": "12",
+      "Soil Texture": "12",
+      "Plant Age": "12",
+      "Plant Disease (if any)": "12",
+      "Geographical Location": "Indonesia",
+      "Average Temperature": "12",
+      "Annual Rainfall": "12",
+      "Water Source": "12",
+      "Desired Coffee Variety": "12",
+      "Initial Investment": "1200",
+      "Resources Available": "No tools"
+    }
+  ]
+}

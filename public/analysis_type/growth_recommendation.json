@@ -1,0 +1,29 @@
+{
+    "growth_recommendation": [
+      {
+        "id": "1",
+        "altitude": 1500,
+        "average_temperature": "18-22°C",
+        "annual_rainfall": "1800mm",
+        "humidity": "75%",
+        "soil_ph": "6.2",
+        "soil_texture": "Loamy",
+        "desired_coffee_variety": "Heirloom",
+        "initial_investment": 5000,
+        "resources_available": "Basic tools, 5 laborers"
+      },
+      {
+        "id": "2",
+        "altitude": 1200,
+        "average_temperature": "22-26°C",
+        "annual_rainfall": "1600mm",
+        "humidity": "80%",
+        "soil_ph": "5.8",
+        "soil_texture": "Clayey",
+        "desired_coffee_variety": "Caturra",
+        "initial_investment": 7000,
+        "resources_available": "Tractor, irrigation system, 10 laborers"
+      }
+    ]
+  }
+  

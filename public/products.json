@@ -1,0 +1,33 @@
+[
+  {
+      "name": "MeserCoffee Atos",
+      "origin": "Colombia",
+      "processing_method": "Washed",
+      "roast_level": "Medium",
+      "bean_size": "Whole Bean",
+      "price_per_unit": "$15.99",
+      "stock_quantity": "50",
+      "image": "/product.jpg"
+  },
+  {
+      "name": "Arabica Blend",
+      "origin": "Ethiopia",
+      "processing_method": "Natural",
+      "roast_level": "Light",
+      "bean_size": "Ground",
+      "price_per_unit": "$12.99",
+      "stock_quantity": "30",
+      "image": "/product.jpg"
+  },
+  {
+      "name": "Robusta Classic",
+      "origin": "Vietnam",
+      "processing_method": "Sun-dried",
+      "roast_level": "Dark",
+      "bean_size": "Whole Bean",
+      "price_per_unit": "$18.49",
+      "stock_quantity": "20",
+      "image": "/product.jpg"
+  }
+
+]
